@@ -1,0 +1,12 @@
+{% extends 'order/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.user|as_crispy_field }}
+    {{ form.book|as_crispy_field }}
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+{% endblock %}
