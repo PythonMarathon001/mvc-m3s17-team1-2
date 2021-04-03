@@ -8,10 +8,12 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = ('name', 'authors', 'description', 'count')
         labels = {
-            'name': 'Name ob Book',
-            'authors': 'Book`s Author',
+            'name': 'Name of a Book',
+            'authors': "Book's Authors",
         }
 
     def __init__(self, *args, **kwargs):
         super(BookForm,self).__init__(*args, **kwargs)
-        self.fields['authors'].required = False
+        self.fields['authors'].required = True
+        self.fields['name'].required = True
+        self.fields['count'].required = True
